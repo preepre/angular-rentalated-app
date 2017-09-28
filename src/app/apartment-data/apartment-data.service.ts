@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import { Apartment } from '../apartment';
 import 'rxjs/add/operator/map';
 import { Subject } from "rxjs/Subject";
+import { User } from "../User";
 
 
 @Injectable()
@@ -57,6 +58,18 @@ export class ApartmentDataService {
       .post('http://localhost:4567/api/apartments', apt, { withCredentials : true})
       .map(response => response.status === 201 ? response.json() : null)
       .do(Apartment => this.aptChanged.next(Apartment))
+      ;
+
+  }
+
+  createLike(apartment : Apartment) {
+
+    const like = { apartment};
+
+    return this.http 
+      .post('http://localhost:4567/api/apartments/' + apartment.id + '/like',  like, { withCredentials : true})
+      .map(response => response.status === 201 ? response.json() : null)
+      //.do(Apartment => this.aptChanged.next(Apartment))
       ;
 
   }

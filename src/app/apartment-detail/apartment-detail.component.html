@@ -18,6 +18,8 @@
   <button  *ngIf="!apartment.is_active"
           (click)="activate(apartment)">Activate</button>
 
+  <button  *ngIf="apartment.is_active"
+          (click)="like(apartment)">Like</button>
 
 <app-apartment-detail 
   *ngIf="selectedApartment"

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Apartment } from "../apartment";
 import { ApartmentDataService } from "../apartment-data/apartment-data.service";
+import { User } from "../User";
+import { SessionDataService } from "../session-data/session-data.service";
 
 @Component({
   selector: 'app-apartment-detail',
@@ -14,7 +16,7 @@ export class ApartmentDetailComponent implements OnInit {
   selectedApartment: Apartment;
   error: string;
 
-  constructor(private data: ApartmentDataService) { }
+  constructor(private data: ApartmentDataService, private session: SessionDataService) { }
 
   selectApartment(apartment: Apartment){
     this.selectedApartment = apartment;
@@ -29,18 +31,24 @@ export class ApartmentDetailComponent implements OnInit {
       () => this.error = 'could not find apt to deactivate',
 
     )
-
-
   }
 
   deactivate(apartment : Apartment) {
-  
     apartment.is_active = false;
         
     this.data
     .deactivate(apartment).subscribe(
       apartment => apartment = apartment,
       () => this.error = 'could not find apt to deactivate',
+
+    )
+  }
+
+  like() {             
+    this.data
+    .createLike(this.apartment).subscribe(
+      apartment => apartment = apartment,
+      () => this.error = 'could not like apt',
 
     )
   }
