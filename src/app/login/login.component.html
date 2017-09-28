@@ -1,0 +1,11 @@
+<h2>Login</h2>
+<form (submit)="submitLogin()">
+
+  <input type="email" name="email" placeholder="email" autofocus [(ngModel)]="email">
+  <input type="password" name="password" [(ngModel)]="password">
+
+  <button>Login</button>
+
+</form>
+
+{{ message }}

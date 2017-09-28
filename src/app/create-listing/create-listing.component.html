@@ -1,0 +1,23 @@
+<h2>Create a listing</h2>
+
+<form (submit)="createListing()">
+
+    <input type="number" required name="rent" placeholder="Rent" autofocus [(ngModel)]="rent">
+    
+    <input type="number" required name="number_of_bedrooms" placeholder="Number of bedrooms" autofocus [(ngModel)]="number_of_bedrooms">
+    
+    <input type="number" required name="number_of_bathrooms" step="0.5" placeholder="Number of bathrooms" autofocus [(ngModel)]="number_of_bathrooms">
+    		
+    <input type="number" required name="square_footage" placeholder="Sq. feet" autofocus [(ngModel)]="square_footage">
+    
+    <input type="text" required name="address" placeholder="address" autofocus [(ngModel)]="address">
+    
+    <input type="text" required name="city" placeholder="city" autofocus [(ngModel)]="city"> 
+    
+    <input type="text" required name="state" placeholder="state" autofocus [(ngModel)]="state">
+    
+		<input type="text" required name="zip_code" placeholder="zip_code" autofocus [(ngModel)]="zip_code">
+
+  <button>Add listing</button>
+
+</form>
