@@ -19,12 +19,13 @@
           (click)="activate(apartment)">Activate</button>
 
   <button  *ngIf="apartment.is_active"
-          (click)="like(apartment)">Like</button>
+          (click)="like()">Like</button>
 
 <app-apartment-detail 
   *ngIf="selectedApartment"
   [apartment]="selectedApartment"
   ></app-apartment-detail>
 
-  
+  <p> Current session user ID: {{ currentSessionUser }} </p>
+  <p> Apartment owner user ID: {{ apartmentOwnerUser }} </p>
 

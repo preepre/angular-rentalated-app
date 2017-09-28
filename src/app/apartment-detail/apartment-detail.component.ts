@@ -15,6 +15,8 @@ export class ApartmentDetailComponent implements OnInit {
   apartment: Apartment;
   selectedApartment: Apartment;
   error: string;
+  currentSessionUser: number;
+  apartmentOwnerUser: number;
 
   constructor(private data: ApartmentDataService, private session: SessionDataService) { }
 
@@ -53,7 +55,10 @@ export class ApartmentDetailComponent implements OnInit {
     )
   }
 
+
   ngOnInit() {
+    this.currentSessionUser = this.session.currentUser.id;
+    this.apartmentOwnerUser = this.apartment.user_id;
     
   }
 
