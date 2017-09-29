@@ -73,6 +73,12 @@ export class ApartmentDataService {
       ;
 
   }
+
+  getUsersWhoLiked(apartment : Apartment): Observable<User[]> {
+    return this.http 
+      .get('http://localhost:4567/api/apartments/mine' + apartment.id + '/likers', { withCredentials : true})
+      .map(response => response.json());
+  }
   
 
 

@@ -10,7 +10,14 @@
   <li><b>Number of bedrooms:</b> {{ apartment.number_of_bedrooms }} </li>
   <li><b>Number of bathrooms:</b> {{ apartment.number_of_bathrooms }} </li>
   <li><b>Square footage:</b>{{ apartment.square_footage }}</li>
+  <li><b>Number of likes: {{ apartment.user_id }} </b></li>
+
+  <!-- <div *ngFor="let user of users">
+       <p> User first name: {{ user.firstName }} </p>
+  </div> -->
+
 </ul>
+
 
   <button  *ngIf="apartment.is_active"
           (click)="deactivate(apartment)">Deactivate</button>
@@ -18,8 +25,9 @@
   <button  *ngIf="!apartment.is_active"
           (click)="activate(apartment)">Activate</button>
 
-  <button  *ngIf="apartment.is_active"
+  <button  *ngIf="!isOwner"
           (click)="like()">Like</button>
+
 
 <app-apartment-detail 
   *ngIf="selectedApartment"
@@ -29,3 +37,7 @@
   <p> Current session user ID: {{ currentSessionUser }} </p>
   <p> Apartment owner user ID: {{ apartmentOwnerUser }} </p>
 
+
+  <h1>Is owner value: {{ isOwner }} </h1>
+
+  

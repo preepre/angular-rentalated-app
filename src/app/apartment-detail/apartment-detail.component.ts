@@ -17,6 +17,8 @@ export class ApartmentDetailComponent implements OnInit {
   error: string;
   currentSessionUser: number;
   apartmentOwnerUser: number;
+  isOwner: boolean;
+  users: User[];
 
   constructor(private data: ApartmentDataService, private session: SessionDataService) { }
 
@@ -55,11 +57,26 @@ export class ApartmentDetailComponent implements OnInit {
     )
   }
 
-
   ngOnInit() {
+    
     this.currentSessionUser = this.session.currentUser.id;
     this.apartmentOwnerUser = this.apartment.user_id;
+
+        if(this.currentSessionUser == this.apartmentOwnerUser){
+              this.isOwner = true;
+
+          }
+        else {
+             this.isOwner = false;
+          }
     
+    // this.data
+    //   .getUsersWhoLiked(this.apartment)
+    //   .subscribe(
+    //     users => this.users = users,
+    //     () => this.error = 'Could not load apartment data',
+    //   );
+
   }
 
 }
