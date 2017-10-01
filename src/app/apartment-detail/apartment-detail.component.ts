@@ -20,6 +20,9 @@ export class ApartmentDetailComponent implements OnInit {
   isOwner: boolean;
   users: User[];
 
+
+  //add stuff for username printout
+  
   constructor(private data: ApartmentDataService, private session: SessionDataService) { }
 
   selectApartment(apartment: Apartment){
